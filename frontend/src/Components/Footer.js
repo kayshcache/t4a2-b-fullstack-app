@@ -1,9 +1,7 @@
 import React from 'react';
 
 const Footer = () => (
-  <footer className="page-footer" className="indigo darken-4">
-  {/* 
-    // eslint-disable-next-line */}
+  <footer className="page-footer indigo darken-4">
     <div className="container">
       <div className="row">
 	<div className="col l6 s12">
