@@ -1,64 +1,59 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Switch,
 } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-import TraineeList from './Components/Trainee/TraineeList';
-import TraineeSingle from './Components/Trainee/TraineeSingle';
-import TraineeForm from './Components/Trainee/TraineeForm';
 import NavBar from './Components/NavBar';
 import Footer from './Components/Footer';
+import Home from './Pages/Home';
 
-class App extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			trainees: [],
-			currentTrainee: {},
-		}
+// Create and export stateful contexts for React Context API
+const TraineeContext = React.createContext();
+export const TraineeContextConsumer = TraineeContext.Consumer;
 
-		this.updateCurrentTrainee = this.updateCurrentTrainee.bind(this);
-	}
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-	componentDidMount() {
-		axios.get('/trainees')
-			.then(Response => {
-				this.setState({
-					trainees: Response.data
-				})
-			})
-			.catch(err => console.log(err));
-	}
+    this.updateCurrentTrainee = (item) => {
+      this.setState({
+	currentTrainee: item,
+      });
+    };
 
-	updateCurrentTrainee(item) {
-		this.setState({
-			currentTrainee: item,
-		});
-	}
+    this.state = {
+      trainees: [],
+      currentTrainee: {},
+      updateCurrentTrainee: this.updateCurrentTrainee,
+    }
+  }
 
+  componentDidMount() {
+    axios.get('/trainees')
+      .then(res => {
+	this.setState({
+	  trainees: res.data
+	})
+      }).catch(err => console.warn(err));
+  }
 
-	render() {
-	  return (
-	    <Router>
-	      <div className="container-fluid">
-	        <NavBar />
-		<div className="row">
-			  <div className="col s3"><TraineeList trainees={this.state.trainees}
-				  updateCurrentTrainee={this.updateCurrentTrainee}/></div>
-			  <div className="col s9"><TraineeSingle trainee={this.state.currentTrainee} /></div>
-		</div>
-		<div className="row">
-		  <div className="col s12"><TraineeForm /></div>
-		</div>
-	        <Footer />
-	      </div>
-	    </Router>
-	  );
-	}
+  render() {
+    return (
+      <TraineeContext.Provider value={this.state}>
+	<BrowserRouter>
+	  <div className="container-fluid">
+	    <NavBar />
+	    <Switch>
+              <Route path="/" component={Home} exact />
+	    </Switch>
+	    <Footer />
+	  </div>
+	</BrowserRouter>
+      </TraineeContext.Provider>
+    );
+  }
 }
-
-export default App;
 
