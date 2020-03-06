@@ -7,7 +7,7 @@ export default class TraineeForm extends React.Component {
 
     axios.post('/trainees', {
       firstName: this.refs.firstName.value,
-      lastName: this.refs.firstName.value,
+      lastName: this.refs.lastName.value,
       email: this.refs.email.value,
       phone: this.refs.phone.value,
     })

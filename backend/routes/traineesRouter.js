@@ -3,14 +3,19 @@ import {
   addNewTrainee,
   getTrainees,
 } from '../controllers/traineeController';
+import { requireAuthorization, registerTrainee, authorizeUser } from '../controllers/authController';
 
 const router = express.Router();
 
 /* GET users listing. */
-router.get('/', getTrainees);
+router
+  .get('/', getTrainees)
+
+  .get('/admin', requireAuthorization, authorizeUser)
+
 // Hit the endpoint:
 // curl -X POST localhost:7000/trainees -d '{"firstName": "t1", "lastName": "tsn1", "email": "go@gogo.go", "phone": "0444444444"}' -H 'Content-Type: application/json'
-router.post('/', addNewTrainee);
+  .post('/', addNewTrainee);
 
 /* eg POSSIBLY CAN CHAIN METHODS AND MIDDLEWARE HERE
  * Check that on Express docs later

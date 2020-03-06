@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-//import bcrypt from 'bcrypt';
+import bcrypt from 'bcrypt';
 
 const Schema = mongoose.Schema;
 
@@ -14,6 +14,7 @@ export const TraineeSchema = new Schema({
   },
   email: {
     type: String,
+    unique: true,
     required: true
   },
   phone: {
@@ -34,6 +35,6 @@ export const TraineeSchema = new Schema({
   }
 });
 
-// For later hashing passwords in DB
-// TraineeSchema.methods.comparePassword = (textPassword, hashPassword) => bcrypt.compareSync(textPassword, hashPassword);
+// For verifying the hashed passwords in DB
+TraineeSchema.methods.comparePassword = (plainPassword, hashPassword) => bcrypt.compareSync(plainPassword, hashPassword);
 

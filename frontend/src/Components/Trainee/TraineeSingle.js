@@ -12,6 +12,7 @@ const TraineeSingle = () => (
 	      <span className="card-title">{trainee.firstName}</span>
 	    </div>
 	    <div className="card-content">
+	      <p>{trainee.hasCompleted ? "Training complete" : "Training incomplete"}</p>
 	      <p>Phone: {trainee.phone}</p>
 	    </div>
 	    <div className="card-action">
