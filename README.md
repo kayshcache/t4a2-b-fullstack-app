@@ -9,30 +9,31 @@ This task requires you to demonstrate that you can build a complete application 
 
 Real World App - Part B requires you to deliver the coding component of of this project, with accompanying documentation.
 ## Coding Requirements
-R1	**Write well designed code that:**
+1. R1	**Write well designed code that:**
  	Separates the program into modules that each deal with one particular focus, or concern
  	Demonstrates DRY (Don’t Repeat Yourself) coding principles
  	Uses appropriate libraries
  	Demonstrates good code flow control for user stories
  	Applies Object Oriented (OO) principles/patterns
  	Uses appropriate data structures
-R2	Employ and utilise proper source control methodology (git)
-R3	Use a recognised project management methodology
-R4	Use a recognised task delegation methodology
-R5	Produce a working application that meets user needs
-R6	Deploy the application to a cloud hosting service
-R7	Produce an application with an intuitive user interface
-R8	**Provides evidence of user testing**:
+2. R2	Employ and utilise proper source control methodology (git)
+3. R3	Use a recognised project management methodology
+4. R4	Use a recognised task delegation methodology
+5. R5	Produce a working application that meets user needs
+6. R6	Deploy the application to a cloud hosting service
+7. R7	Produce an application with an intuitive user interface
+8. R8	**Provides evidence of user testing**:
  	In the development environment
  	In the production environment
-R9	Utilises a formal testing framework
+9. R9	Utilises a formal testing framework
+10. Where is requirement 10?
 
 ## Documentation Requirements
 Single README + /docs for attachments
-R11	A link (URL) to your deployed website
-R12	A link to your GitHub repository (repo)
+11. R11	A link (URL) to your deployed website
+12. R12	A link to your GitHub repository (repo)
 Ensure the repo is accessible by your educators!
-R13	The contents of your README.md as submitted for Real World App - Part A
+13. R13	The contents of your README.md as submitted for Real World App - Part A
 ## Presenation Requirements
 Less than 10 minutes
 ## Requirements Checklist:
